@@ -1,0 +1,84 @@
+/* organize css by specificty: top is least specific */
+
+body {
+	font-family: Roboto; /* for every font on site */
+	background: #2BC0E4;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+	background: #2980b9;
+	color: white;
+	margin: 0;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+span { /* trash icon */
+	background: #e74c3c;
+	height: 40px; /* dont need cuz inline-block does it */
+	margin-right: 20px;
+	text-align: center;
+	color: white;
+	width: 0px; /* need inline-block or it won't work */
+	display: inline-block; /* fills out container top/bottom */
+	transition: 0.2s linear; /* when click trash. linear = constant speed */ 
+	opacity: 0; /* otherwise trash shows without hover */
+}
+
+ul {
+	list-style: none; /* removes li bullet pts */
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	background: #fff;
+	height: 40px;
+	line-height: 40px;
+	color: #666;
+}
+
+#container {
+	background: #f7f7f7;
+	width: 360px;
+	margin: 100px auto;	
+	box-shadow: 0 0 3px rgba(0,0,0,0.1); /* right, bottom, blur, color */
+}
+
+li:nth-child(2n) { /* every other li */
+	background: #f7f7f7;
+}
+
+li:hover span { /* when li hovered, the span __ */
+	width: 40px;
+	opacity: 1.0; /* trash/span shows when hover */
+}
+
+input {
+	font-size: 18px;
+	color: #2980b9; /* when typing */
+	background: #f7f7f7;
+	width: 100%;
+	padding: 13px 13px 13px 20px; /* top,right,bottom,left */
+	box-sizing: border-box; /* keep within container. needs webkit */
+	border: 3px solid rgba(0,0,0,0); /* to remove default grey border*/
+}
+
+input:focus { /* when u click on input */
+	background: #fff;
+	border: 3px solid #2980b9;
+	outline: none;
+}
+
+.completed {
+	color: gray;
+	text-decoration: line-through;
+}
+
+.fa-plus {
+	float: right;
+}
