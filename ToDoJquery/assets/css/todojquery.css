@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-	background: #2980b9;
+	background: #2980b9; /* blue */
 	color: white;
 	margin: 0;
 	padding: 10px 20px;
@@ -17,16 +17,20 @@ h1 {
 	font-weight: normal;
 }
 
-span { /* trash icon */
-	background: #e74c3c;
-	height: 40px; /* dont need cuz inline-block does it */
-	margin-right: 20px;
-	text-align: center;
-	color: white;
-	width: 0px; /* need inline-block or it won't work */
-	display: inline-block; /* fills out container top/bottom */
-	transition: 0.2s linear; /* when click trash. linear = constant speed */ 
-	opacity: 0; /* otherwise trash shows without hover */
+input {
+	font-size: 18px;
+	color: #2980b9; /* text + text line when typing */
+	background: #f7f7f7;
+	width: 100%; /* within container */
+	padding: 13px 13px 13px 20px; /* top,right,bottom,left */
+	box-sizing: border-box; /* keep within container. needs webkit */
+	border: 3px solid rgba(0,0,0,0); /* to remove default grey border*/
+}
+
+input:focus { /* when u click on input */
+	background: #fff;
+	border: 3px solid #2980b9;
+	outline: none; /* hides default red border */
 }
 
 ul {
@@ -42,13 +46,6 @@ li {
 	color: #666;
 }
 
-#container {
-	background: #f7f7f7;
-	width: 360px;
-	margin: 100px auto;	
-	box-shadow: 0 0 3px rgba(0,0,0,0.1); /* right, bottom, blur, color */
-}
-
 li:nth-child(2n) { /* every other li */
 	background: #f7f7f7;
 }
@@ -58,20 +55,23 @@ li:hover span { /* when li hovered, the span __ */
 	opacity: 1.0; /* trash/span shows when hover */
 }
 
-input {
-	font-size: 18px;
-	color: #2980b9; /* when typing */
-	background: #f7f7f7;
-	width: 100%;
-	padding: 13px 13px 13px 20px; /* top,right,bottom,left */
-	box-sizing: border-box; /* keep within container. needs webkit */
-	border: 3px solid rgba(0,0,0,0); /* to remove default grey border*/
+span { /* trash icon + red bg */
+	background: #e74c3c; /* red bg */
+	height: 40px; /* height of red bg from top to bottom */
+	margin-right: 20px; /* btwn red bg + text */
+	text-align: center; /* center the icon within red bg */
+	color: white; /* icon */
+	width: 0px; /* default red bg width when not hovered */
+	display: inline-block; /* fills out container top/bottom */
+	transition: .2s linear; /* when hover trash. linear = constant speed */ 
+	opacity: 0; /* trash doesn't show when not hovered */
 }
 
-input:focus { /* when u click on input */
-	background: #fff;
-	border: 3px solid #2980b9;
-	outline: none;
+#container {
+	background: #f7f7f7; /* doesn't matter cuz overridden */
+	width: 360px;
+	margin: 100px auto;	
+	box-shadow: 0 0 3px rgba(0,0,0,0.1); /* right, bottom, blur, color */
 }
 
 .completed {
